@@ -6,11 +6,11 @@ import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "session_feedback",
-        foreignKeys = [(ForeignKey(
+        foreignKeys = [ForeignKey(
                 entity = SessionEntity::class,
-                parentColumns = arrayOf("id"),
-                childColumns = arrayOf("session_id"),
-                onDelete = ForeignKey.CASCADE))])
+                parentColumns = ["id"],
+                childColumns = ["session_id"],
+                onDelete = ForeignKey.CASCADE)])
 data class SessionFeedbackEntity(
         @PrimaryKey(autoGenerate = true) val id: Int?,
         @ColumnInfo(name = "session_id") val sessionId: String,
